@@ -1,0 +1,23 @@
+# frontend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: note-app-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: note-app-frontend
+  template:
+    metadata:
+      labels:
+        app: note-app-frontend
+    spec:
+      containers:
+        - name: note-app-frontend
+          image: 180294189799.dkr.ecr.us-west-1.amazonaws.com/note-app-frontend:latest # Replace with your ECR URI
+          ports:
+            - containerPort: 80
+          env:
+            - name: REACT_APP_API_URL # Environment variable for API endpoint
+              value: "http://note-app-backend-service" # Use the backend service name
