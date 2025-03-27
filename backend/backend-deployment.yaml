@@ -1,0 +1,31 @@
+# backend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: note-app-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: note-app-backend
+  template:
+    metadata:
+      labels:
+        app: note-app-backend
+    spec:
+      containers:
+        - name: note-app-backend
+          image: 180294189799.dkr.ecr.us-west-1.amazonaws.com/note-app-backend:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secrets
+                  key: access-key
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secrets
+                  key: secret-key

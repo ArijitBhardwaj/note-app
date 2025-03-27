@@ -1,0 +1,13 @@
+# backend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: note-app-backend-service
+spec:
+  selector:
+    app: note-app-backend # Matches the label in your backend deployment
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000 # Port where your Node.js app runs
+  type: LoadBalancer # Creates an AWS ELB (External Load Balancer)
