@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      body {
-        width: 300px;
-        padding: 15px;
-        font-family: Arial, sans-serif;
-        background: #f0f2f5;
-      }
-      .container {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      #noteInput {
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 14px;
-      }
-      button {
-        background: #4CAF50;
-        color: white;
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-      }
-      button:disabled {
-        background: #cccccc;
-        cursor: not-allowed;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <input type="text" id="noteInput" placeholder="Enter your note..." />
-      <button id="saveButton">Save Note</button>
+<head>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="auth-screen" class="auth-screen">
+    <h1>Notes App</h1>
+    <div class="form-group">
+      <input type="email" id="email" placeholder="Email">
     </div>
-    <script src="popup.js"></script>
-  </body>
+    <div class="form-group">
+      <input type="password" id="password" placeholder="Password">
+    </div>
+    <div class="button-group">
+      <button id="signin-btn" class="btn primary">Sign In</button>
+      <button id="signup-btn" class="btn secondary">Sign Up</button>
+    </div>
+    <div id="auth-message" class="message"></div>
+  </div>
+
+  <div id="dashboard" class="dashboard hidden">
+    <div class="header">
+      <h2>My Notes</h2>
+      <button id="signout-btn" class="btn signout">Sign Out</button>
+    </div>
+    
+    <div id="notes-list" class="notes-list"></div>
+    
+    <div class="new-note">
+      <input type="text" id="new-note-input" placeholder="Add new note...">
+      <button id="add-note-btn" class="btn primary">Add</button>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
 </html>

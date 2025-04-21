@@ -1,0 +1,102 @@
+body {
+  width: 350px;
+  min-height: 400px;
+  padding: 15px;
+  font-family: "Arial", sans-serif;
+  background: #f5f7fb;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.auth-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.primary {
+  background: #4a90e2;
+  color: white;
+}
+
+.secondary {
+  background: #f0f2f5;
+  color: #333;
+}
+
+.signout {
+  background: #ff4757;
+  color: white;
+}
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.note-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.note-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.new-note {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+#new-note-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.error {
+  background: #ffeef0;
+  color: #ff4757;
+}
+
+.success {
+  background: #e8f5e9;
+  color: #2ecc71;
+}

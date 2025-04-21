@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: note-app-frontend
-          image: 180294189799.dkr.ecr.us-west-1.amazonaws.com/note-app-frontend:latest # Replace with your ECR URI
+          image: 180294189799.dkr.ecr.us-west-1.amazonaws.com/note-app-frontend:v13
           ports:
             - containerPort: 80
           env:

@@ -1,37 +1,28 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+// src/App.js
+
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
+import DashboardPage from "./pages/DashboardPage";
 
 function App() {
-  const [notes, setNotes] = useState([]);
-
-  useEffect(() => {
-    const fetchNotes = async () => {
-      try {
-        const response = await axios.get(
-          "http://note-app-backend-service/api/notes"
-        );
-        console.log("API Response:", response.data); // Debugging line
-        setNotes(response.data);
-      } catch (err) {
-        console.error("Fetch Error:", err); // Debugging line
-      }
-    };
-    fetchNotes();
-  }, []);
-
   return (
-    <div>
-      <h1>Notes</h1>
-      {notes.length === 0 ? (
-        <p>No notes found.</p>
-      ) : (
-        notes.map((note) => (
-          <div key={note.noteId}>
-            <p>{note.content}</p>
-          </div>
-        ))
-      )}
-    </div>
+    <Router>
+      <Routes>
+        {/* Sign In page */}
+        <Route path="/signin" element={<SignInPage />} />
+        
+        {/* Sign Up page */}
+        <Route path="/signup" element={<SignUpPage />} />
+
+        {/* Dashboard (protected) */}
+        <Route path="/dashboard" element={<DashboardPage />} />
+
+        {/* Default: redirect to sign in */}
+        <Route path="*" element={<SignInPage />} />
+      </Routes>
+    </Router>
   );
 }
 
