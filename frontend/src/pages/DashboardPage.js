@@ -9,13 +9,14 @@ import { useNavigate } from "react-router-dom";
 // For real-time
 import { io } from "socket.io-client";
 
-// REPLACE with your actual load balancer URL
-const BACKEND_BASE_URL =
-  "http://a2f2af860725d450b98395e40f2dd3b0-1687692579.us-west-1.elb.amazonaws.com";
+// Replace the hardcoded BACKEND_BASE_URL with:
+const BACKEND_BASE_URL = process.env.NODE_ENV === 'development' 
+  ? 'http://localhost:3001' 
+  : 'http://a2f2af860725d450b98395e40f2dd3b0-1687692579.us-west-1.elb.amazonaws.com';
 
-// We'll connect to the same domain for Socket.IO
-const socket = io(BACKEND_BASE_URL, {
-  transports: ["websocket", "polling"], // Ensures websockets are used
+// Update Socket.IO connection:
+const socket = io(process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : BACKEND_BASE_URL, {
+  transports: ["websocket", "polling"],
 });
 
 function DashboardPage() {
