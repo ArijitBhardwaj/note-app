@@ -21,3 +21,5 @@ spec:
           env:
             - name: REACT_APP_API_URL # Environment variable for API endpoint
               value: "http://note-app-backend-service" # Use the backend service name
+            - name: REACT_APP_ENVIRONMENT  #Added to test locally
+              value: "production"
