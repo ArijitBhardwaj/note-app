@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: note-app-backend
-          image: 180294189799.dkr.ecr.us-west-1.amazonaws.com/note-app-backend:latest
+          image: 180294189799.dkr.ecr.us-west-1.amazonaws.com/note-app-backend:v4
           ports:
             - containerPort: 5000
           env:
