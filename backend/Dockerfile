@@ -13,8 +13,8 @@ RUN npm install
 # Copy all source code
 COPY . .
 
-# Copy your Firebase service account key
-COPY serviceAccountKey.json ./serviceAccountKey.json
+# Firebase credentials are mounted at run time and set via GOOGLE_APPLICATION_CREDENTIALS,
+# so no key is baked into the image.
 
 # Expose port 5000 (matches your backend port)
 EXPOSE 5000
